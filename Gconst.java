@@ -1,4 +1,4 @@
 public interface Gconst {
-    public double getConstants();
+    public void getConstants();
 }
 

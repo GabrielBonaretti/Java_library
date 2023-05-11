@@ -1,26 +1,20 @@
-import orientedObject.Specialization;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class Celsius extends Operations implements Gconst {
-    double celsius;
+public class Kelvin extends Operations implements Gconst {
+    double kelvin;
     double constant273_15;
-    double constant1_8;
     double constant32;
+    double constant1_8;
 
-    public Celsius(double celsius) {
-        this.celsius = celsius;
+    public Kelvin(double kelvin) {
+        this.kelvin = kelvin;
         getConstants();
     }
 
-    public double getCelsius() {
-        return this.celsius;
+    public double getKelvin() {
+        return this.kelvin;
     }
 
-    public void setCelsius(double celsius) {
-        this.celsius = celsius;
+    public void setKelvin(double kelvin) {
+        this.kelvin = kelvin;
     }
 
     @Override
@@ -29,16 +23,21 @@ public class Celsius extends Operations implements Gconst {
     }
 
     @Override
+    public double subtraction (double number1, double number2) {
+        return number1 - number2;
+    }
+
+    @Override
     public double multiplication(double number1, double number2) {
         return number1 * number2;
     }
 
-    public double celsiusToKelvinIn() {
-        return sum(this.celsius, constant273_15);
+    public double kelvinToCelsiusIn() {
+        return subtraction(this.kelvin, constant273_15);
     }
 
-    public double celsiusToFahrenheitIn() {
-        return sum(multiplication(this.celsius, constant1_8), constant32);
+    public double kelvintoFahrenheitIn() {
+        return sum(multiplication(subtraction(this.kelvin, constant273_15), constant1_8), constant32);
     }
 
     @Override
